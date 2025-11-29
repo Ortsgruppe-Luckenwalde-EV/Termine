@@ -14,10 +14,10 @@
             --color-secondary: #795548; /* Dunkelbraun (Holz/Navigation) */
             --color-background: #e0f2f1; /* Helles Aquamarin (Basis) */
             --color-text: #333;
+            --color-table-accent: #b2dfdb; /* Helle Akzentfarbe für Tabelle (Aqua) */
         }
 
         body {
-            /* Das body padding wurde entfernt, um den Header bündig zu halten */
             background-color: var(--color-background);
             margin: 0; 
             padding: 0; 
@@ -27,7 +27,7 @@
         
         /* HEADER (Kopfbereich) */
         .header-container {
-            background-color: var(--color-primary); /* GRÜNER BALKEN HINTERGRUND */
+            background-color: var(--color-primary);
             padding: 15px 30px; 
             display: flex;
             align-items: center; 
@@ -45,7 +45,7 @@
         .logo {
             height: 60px; 
             width: auto;
-            border-radius: 50%; /* MACHT DAS BILD RUND WIE EINEN BALL */
+            border-radius: 50%; 
             margin-right: 20px; 
             border: 3px solid white; 
             object-fit: cover; 
@@ -53,7 +53,7 @@
 
         /* NAVIGATION (Reiter) */
         .nav-bar {
-            background-color: var(--color-secondary); /* BRAUNER NAVIGATIONSBALKEN HINTERGRUND */
+            background-color: var(--color-secondary);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
@@ -77,11 +77,9 @@
             padding: 15px 25px;
             font-family: 'Oswald', sans-serif;
             font-size: 1.1em;
-            /* Für sanfte Animation */
             transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;
         }
         
-        /* APPLE-STYLE HOVER EFFEKT */
         .nav-bar a:hover {
             background-color: #5d4037; 
             transform: translateY(-2px); 
@@ -89,7 +87,70 @@
             border-radius: 4px; 
         }
 
-        /* **ENTFERNTE STYLES** (CONTENT, WELCOME-TITLE, etc. sind nicht mehr nötig) */
+        /* NEUE STILE FÜR INHALT UND TABELLE */
+        .content-wrapper {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .content-wrapper h2 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--color-primary);
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 10px;
+        }
+
+        /* TABELLEN DESIGN MIT ANIMATIONEN */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Weicher Schatten */
+            background-color: white;
+            border-radius: 8px; /* Abgerundete Ecken */
+            overflow: hidden; /* Wichtig für abgerundete Ecken */
+        }
+
+        .styled-table thead tr {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            border-right: 1px solid #ddd; /* Trennlinie */
+        }
+        
+        /* Streifen-Design für die Tabellenzeilen */
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: var(--color-table-accent); /* Heller Aquamarin für gerade Zeilen */
+        }
+
+        /* HOVER EFFEKT: Zeile hebt sich leicht hervor */
+        .styled-table tbody tr {
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        .styled-table tbody tr:hover {
+            background-color: #c8e6c9; /* Sehr helles Grün beim Hover */
+            transform: scale(1.005); /* Skaliert leicht, um sich abzuheben */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Leere State Styling */
+        .styled-table tbody tr.empty-state td {
+            text-align: center;
+            font-style: italic;
+            color: #999;
+            padding: 50px 15px;
+        }
         
     </style>
 </head>
@@ -111,6 +172,29 @@
             <li><a href="termine.html">Termine</a></li>
         </ul>
     </nav>
+
+    <div class="content-wrapper">
+        
+        <h2>Hier sehen Sie die wichtigsten Termine und Veranstaltungen</h2>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Uhrzeit</th>
+                    <th>Veranstaltung</th>
+                    <th>Ort</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="empty-state">
+                    <td colspan="4">Zurzeit sind keine Termine eingetragen. Bitte schauen Sie bald wieder vorbei!</td>
+                </tr>
+                
+                </tbody>
+        </table>
+
+    </div>
 
 </body>
 </html>
