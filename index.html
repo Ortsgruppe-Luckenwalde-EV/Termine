@@ -64,6 +64,7 @@
             margin: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Wichtig für mobiles Umbrechen */
         }
         
         .nav-bar li {
@@ -87,11 +88,13 @@
             border-radius: 4px; 
         }
 
-        /* NEUE STILE FÜR INHALT UND TABELLE */
+        /* INHALT UND TABELLE */
         .content-wrapper {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
+            opacity: 0; 
+            animation: fadeInSlide 1s ease-out 0.5s forwards; 
         }
 
         .content-wrapper h2 {
@@ -110,10 +113,10 @@
             border-collapse: collapse;
             margin: 25px 0;
             font-size: 0.9em;
-            min-width: 400px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Weicher Schatten */
+            min-width: 400px; /* Wird durch Media Query überschrieben */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); 
             background-color: white;
-            border-radius: 8px; /* Abgerundete Ecken */
+            border-radius: 8px; 
             overflow: hidden; 
         }
 
@@ -150,24 +153,89 @@
             padding: 50px 15px;
         }
         
-        /* 💡 NEUE APPLE-MÄSSIGE EINBLEND-ANIMATION 💡 */
-        /* 1. Definiere die Animation */
+        /* APPLE-MÄSSIGE EINBLEND-ANIMATION */
         @keyframes fadeInSlide {
             0% {
-                opacity: 0; /* Beginnt unsichtbar */
-                transform: translateY(20px); /* Beginnt 20px tiefer */
+                opacity: 0; 
+                transform: translateY(20px); 
             }
             100% {
-                opacity: 1; /* Endet komplett sichtbar */
-                transform: translateY(0); /* Bewegt sich in die Endposition */
+                opacity: 1; 
+                transform: translateY(0); 
             }
         }
 
-        /* 2. Wende die Animation auf den Hauptinhalt an */
-        .content-wrapper {
-            /* ... (vorherige Stile) */
-            opacity: 0; /* Wichtig: Verstecke den Inhalt initial */
-            animation: fadeInSlide 1s ease-out 0.5s forwards; /* Name, Dauer, Timing, Verzögerung, Beibehalten des Endzustands */
+        /* 📱 RESPONSIVE ANPASSUNGEN (Für Handys) 📱 */
+        @media (max-width: 600px) {
+            
+            /* 1. Header zentrieren */
+            .header-container {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+
+            .logo {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                text-align: center;
+            }
+
+            /* 2. Navigationspunkte untereinander stapeln */
+            .nav-bar ul {
+                flex-direction: column;
+            }
+
+            .nav-bar a {
+                padding: 10px 15px; /* Etwas kleiner für schmalere Ansicht */
+                border-bottom: 1px solid #5d4037; /* Trennlinie */
+            }
+
+            /* 3. Tabelle mobilfreundlich machen (Stacked Table) */
+            .styled-table, .styled-table tbody, .styled-table tr, .styled-table td {
+                display: block; /* Alle Elemente blockweise darstellen */
+                width: 100%;
+            }
+
+            .styled-table thead {
+                display: none; /* Kopfzeile ausblenden */
+            }
+
+            .styled-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+            
+            .styled-table td {
+                border: none;
+                border-bottom: 1px solid #f0f0f0;
+                position: relative;
+                padding-left: 50%; /* Platz für das Label */
+                text-align: right;
+            }
+
+            /* Fügen Sie die Spaltenüberschrift als Label vor den Inhalt jedes Feldes ein */
+            .styled-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: var(--color-primary);
+            }
+
+            .styled-table tbody tr.empty-state td {
+                padding-left: 15px; /* Override für die leere Meldung */
+                text-align: center;
+            }
         }
         
     </style>
@@ -208,7 +276,8 @@
                 <tr class="empty-state">
                     <td colspan="4">Zurzeit sind keine Termine eingetragen. Bitte schauen Sie bald wieder vorbei!</td>
                 </tr>
-            </tbody>
+                
+                </tbody>
         </table>
 
     </div>
