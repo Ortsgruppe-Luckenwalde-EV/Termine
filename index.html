@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ortsgruppe Luckenwalde e.V. - Anglerverein</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* FARB PALETTE */
-        :root {
-            --color-primary: #004d40; /* Dunkles Blaugrün (Wasser/Header) */
-            --color-secondary: #795548; /* Dunkelbraun (Holz/Navigation) */
-            --color-background: #e0f2f1; /* Helles Aquamarin (Basis) */
-            --color-text: #333;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ortsgruppe Luckenwalde e.V. - Anglerverein</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* FARB PALETTE */
+        :root {
+            --color-primary: #004d40; /* Dunkles Blaugrün (Wasser/Header) */
+            --color-secondary: #795548; /* Dunkelbraun (Holz/Navigation) */
+            --color-background: #e0f2f1; /* Helles Aquamarin (Basis) */
+            --color-text: #333;
+        }
 
-        body {
-            /* Das body padding wurde entfernt, um den Header bündig zu halten */
-            background-color: var(--color-background);
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Roboto', sans-serif;
-            color: var(--color-text);
-        }
-        
-        /* HEADER (Kopfbereich) */
-        .header-container {
-            background-color: var(--color-primary);
-            padding: 15px 30px; 
-            display: flex;
-            align-items: center; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-        }
-        
-        h1 {
-            color: white; 
-            font-family: 'Oswald', sans-serif;
-            font-size: 2.2em;
-            margin: 0;
-            letter-spacing: 1px;
-        }
-        
-        .logo {
-            height: 60px; 
-            width: auto;
-            border-radius: 50%; 
-            margin-right: 20px; 
-            border: 3px solid white; 
-            object-fit: cover; 
-        }
+        body {
+            /* Das body padding wurde entfernt, um den Header bündig zu halten */
+            background-color: var(--color-background);
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Roboto', sans-serif;
+            color: var(--color-text);
+        }
+        
+        /* HEADER (Kopfbereich) */
+        .header-container {
+            background-color: var(--color-primary); /* GRÜNER BALKEN HINTERGRUND */
+            padding: 15px 30px; 
+            display: flex;
+            align-items: center; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        }
+        
+        h1 {
+            color: white; 
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.2em;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        
+        .logo {
+            height: 60px; 
+            width: auto;
+            border-radius: 50%; /* MACHT DAS BILD RUND WIE EINEN BALL */
+            margin-right: 20px; 
+            border: 3px solid white; 
+            object-fit: cover; 
+        }
 
-        /* NAVIGATION (Reiter) */
-        .nav-bar {
-            background-color: var(--color-secondary);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .nav-bar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .nav-bar li {
-            margin: 0;
-        }
-        
-        .nav-bar a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1em;
-            /* Für sanfte Animation */
-            transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;
-        }
-        
-        /* APPLE-STYLE HOVER EFFEKT */
-        .nav-bar a:hover {
-            background-color: #5d4037; 
-            transform: translateY(-2px); /* Hebt den Reiter subtil an */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Fügen einen weichen Schatten hinzu */
-            border-radius: 4px; 
-        }
+        /* NAVIGATION (Reiter) */
+        .nav-bar {
+            background-color: var(--color-secondary); /* BRAUNER NAVIGATIONSBALKEN HINTERGRUND */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .nav-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-bar li {
+            margin: 0;
+        }
+        
+        .nav-bar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1em;
+            /* Für sanfte Animation */
+            transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s;
+        }
+        
+        /* APPLE-STYLE HOVER EFFEKT */
+        .nav-bar a:hover {
+            background-color: #5d4037; 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+            border-radius: 4px; 
+        }
 
-        /* **ENTFERNTE STYLES** (CONTENT, WELCOME-TITLE, etc. sind nicht mehr nötig) */
-        
-    </style>
+        /* **ENTFERNTE STYLES** (CONTENT, WELCOME-TITLE, etc. sind nicht mehr nötig) */
+        
+    </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <img class="logo" 
-             src="fisch.jpeg" 
-             alt="Logo KAV Luckenwalde">
-        
-        <h1>Ortsgruppe Luckenwalde e.V.</h1>
-    </div>
+    <div class="header-container">
+        <img class="logo" 
+              src="fisch.jpeg" 
+              alt="Logo KAV Luckenwalde">
+        
+        <h1>Ortsgruppe Luckenwalde e.V.</h1>
+    </div>
 
-    <nav class="nav-bar">
-        <ul>
-            <li><a href="https://ortsgruppe-luckenwalde-ev.github.io/Haubtseite/">Startseite</a></li>
-            <li><a href="ansprechpartner.html">Ansprechpartner</a></li>
-            <li><a href="https://ortsgruppe-luckenwalde-ev.github.io/Vereinsgew-sser/">Vereinsgewässer</a></li>
-            <li><a href="termine.html">Termine</a></li>
-        </ul>
-    </nav>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="https://ortsgruppe-luckenwalde-ev.github.io/Haubtseite/">Startseite</a></li>
+            <li><a href="ansprechpartner.html">Ansprechpartner</a></li>
+            <li><a href="https://ortsgruppe-luckenwalde-ev.github.io/Vereinsgew-sser/">Vereinsgewässer</a></li>
+            <li><a href="termine.html">Termine</a></li>
+        </ul>
+    </nav>
 
-    </body>
+</body>
 </html>
