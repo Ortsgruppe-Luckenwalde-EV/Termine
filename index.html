@@ -114,7 +114,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Weicher Schatten */
             background-color: white;
             border-radius: 8px; /* Abgerundete Ecken */
-            overflow: hidden; /* Wichtig für abgerundete Ecken */
+            overflow: hidden; 
         }
 
         .styled-table thead tr {
@@ -126,12 +126,11 @@
         .styled-table th,
         .styled-table td {
             padding: 12px 15px;
-            border-right: 1px solid #ddd; /* Trennlinie */
+            border-right: 1px solid #ddd; 
         }
         
-        /* Streifen-Design für die Tabellenzeilen */
         .styled-table tbody tr:nth-of-type(even) {
-            background-color: var(--color-table-accent); /* Heller Aquamarin für gerade Zeilen */
+            background-color: var(--color-table-accent); 
         }
 
         /* HOVER EFFEKT: Zeile hebt sich leicht hervor */
@@ -139,17 +138,36 @@
             transition: background-color 0.3s ease, transform 0.1s ease;
         }
         .styled-table tbody tr:hover {
-            background-color: #c8e6c9; /* Sehr helles Grün beim Hover */
-            transform: scale(1.005); /* Skaliert leicht, um sich abzuheben */
+            background-color: #c8e6c9; 
+            transform: scale(1.005); 
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Leere State Styling */
         .styled-table tbody tr.empty-state td {
             text-align: center;
             font-style: italic;
             color: #999;
             padding: 50px 15px;
+        }
+        
+        /* 💡 NEUE APPLE-MÄSSIGE EINBLEND-ANIMATION 💡 */
+        /* 1. Definiere die Animation */
+        @keyframes fadeInSlide {
+            0% {
+                opacity: 0; /* Beginnt unsichtbar */
+                transform: translateY(20px); /* Beginnt 20px tiefer */
+            }
+            100% {
+                opacity: 1; /* Endet komplett sichtbar */
+                transform: translateY(0); /* Bewegt sich in die Endposition */
+            }
+        }
+
+        /* 2. Wende die Animation auf den Hauptinhalt an */
+        .content-wrapper {
+            /* ... (vorherige Stile) */
+            opacity: 0; /* Wichtig: Verstecke den Inhalt initial */
+            animation: fadeInSlide 1s ease-out 0.5s forwards; /* Name, Dauer, Timing, Verzögerung, Beibehalten des Endzustands */
         }
         
     </style>
@@ -190,8 +208,7 @@
                 <tr class="empty-state">
                     <td colspan="4">Zurzeit sind keine Termine eingetragen. Bitte schauen Sie bald wieder vorbei!</td>
                 </tr>
-                
-                </tbody>
+            </tbody>
         </table>
 
     </div>
