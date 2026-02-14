@@ -1,5 +1,6 @@
-// Event Data Source
+// Event Data Source for ssd.js
 // Format: YYYY-MM-DD for date to ensure correct sorting
+
 const termine = [
     // Februar
     {
@@ -108,5 +109,6 @@ const termine = [
     }
 ];
 
-// Sortieren nach Datum
-termine.sort((a, b) => new Date(a.date) - new Date(b.date));
+// Sort logic is handled in the main HTML file, but you can keep this clean here.
+// If you want debug messages or sorting:
+// console.log("Termine loaded:", termine.length);
