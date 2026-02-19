@@ -153,31 +153,19 @@
             border: 1px dashed rgba(31, 185, 230, 0.3);
         }
 
-        /* Animations */
-        .fish-animation {
-            width: 60px;
-            height: 40px;
-            background: radial-gradient(ellipse at 30% 30%, #1fb9e6, #01a74a);
-            border-radius: 50%;
-            position: fixed;
-            filter: blur(1px) drop-shadow(0 0 12px rgba(31, 185, 230, 0.8));
-            clip-path: polygon(70% 0%, 100% 30%, 100% 70%, 70% 100%, 0% 50%);
-            animation: swim-animation 8s ease-in-out infinite;
+        /* Swipe-Hinweis für mobile Tabelle */
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            color: #1fb9e6;
+            font-size: 0.8em;
+            padding: 6px 0 2px 0;
+            opacity: 0.8;
         }
 
-        @keyframes swim-animation {
-            0% {
-                transform: translateX(0) translateY(0) scaleX(1);
-                opacity: 0.6;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(100px) translateY(20px) scaleX(-1);
-                opacity: 0.6;
+        @media (max-width: 768px) {
+            .swipe-hint {
+                display: block;
             }
         }
 
@@ -213,11 +201,6 @@
 
 <body class="min-h-screen text-white">
     <div class="content-wrapper">
-        <!-- Fish Animation Elements -->
-        <div class="fish-animation" style="top: 20%; left: 5%;"></div>
-        <div class="fish-animation" style="top: 30%; right: 10%; animation-delay: 2s;"></div>
-        <div class="fish-animation" style="bottom: 25%; left: 15%; animation-delay: 4s;"></div>
-        <div class="fish-animation" style="bottom: 15%; right: 20%; animation-delay: 6s;"></div>
 
         <!-- Header -->
         <header class="bg-[#0f3460]/90 text-white py-4 px-6 shadow-lg">
@@ -289,6 +272,7 @@
                     </div>
                 </div>
 
+                <p class="swipe-hint">👈 Nach rechts wischen, um die ganze Tabelle zu sehen 👉</p>
                 <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
                     <table class="styled-table min-w-[600px] md:min-w-full">
                         <thead>
@@ -484,16 +468,7 @@
                 }
             });
 
-            // Fish Animation
-            gsap.to(".fish-animation", {
-                duration: 12,
-                x: "random(-200, 200, 10)",
-                y: "random(-100, 100, 10)",
-                rotation: "random(-25, 25)",
-                repeat: -1,
-                repeatRefresh: true,
-                ease: "sine.inOut"
-            });
+
         });
     </script>
 </body>
